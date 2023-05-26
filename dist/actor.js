@@ -1,6 +1,7 @@
 import { Persona } from "./persona";
 export class Actor extends Persona {
-    constructor(nombre, foto, descripcion) {
+    constructor(actor, nombre, foto, descripcion) {
         super(nombre, foto, descripcion);
+        this.actor = actor;
     }
 }
