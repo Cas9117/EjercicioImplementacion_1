@@ -1,5 +1,5 @@
 export class Plan {
-    constructor(precio) {
+        constructor(precio) {
         this.precio = precio;
     }
 }
