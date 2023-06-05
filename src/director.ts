@@ -3,19 +3,14 @@ import { Serie } from "./serie.js";
 
 export class Director extends Persona{
     series:Serie[]
-    constructor(nombre:string,foto:string,descripcion:string,series:Serie[]){
+
+    constructor(nombre:string,foto:string,descripcion:string){
     super(nombre,foto,descripcion)
-    this.series = series
+    this.series = []
     }
 
-    mostrarDetalle(){
-        console.log("Detalle del director:")
-        console.log("Nombre:",this.nombre)
-        console.log("Foto:",this.foto)
-        console.log("Descripción:",this.descripcion)
+    agregarSerie(serie:Serie){
+        this.series.push(serie)
     }
-    mostrarListadoDirector(){
-        console.log("Listado Director:",this.nombre)
-
-    }
+    
 }

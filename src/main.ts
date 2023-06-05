@@ -6,63 +6,108 @@ import { Persona } from "./persona.js";
 import { Plan } from "./plan.js";
 import { Plataforma } from "./plataforma.js";
 import { Serie } from "./serie.js";
-// Datos Base
 
-const plataforma1 = new Plataforma("Netflix", "Nectflix.com",[])
-const plataforma2 = new Plataforma("HBO", "HBO.com",[])
+//Creacción de plataformas
 
+let netflix = new Plataforma("Nteflix", "www.netflix.com")
+let amazon = new Plataforma ("Amazon", "www.amazon.com")
 
-const actor1 = new Actor([], "Jack", "Jack JPG","Todos cantando Hiohoo")
-const actor2 = new Actor([], "Luka", "Luka JPG","Hemos de morir")
+let planBasicoNetflix = new Plan(10000)
+let planPremiumNetflix = new Plan(25000)
 
-const director1 = new Director ("Laura","Laura JPG","La mejor", [])
-const director2 = new Director ("Cas","Cas JPG","Crazy", [])
+let planBasicoAmazon = new Plan(20000)
+let planPremiumAmazon = new Plan(30000)
 
-const categoria1 = new Categoria ("Acción",[])
-const categoria2 = new Categoria ("Drama",[])
+netflix.agregarPlan(planBasicoNetflix)
+netflix.agregarPlan(planPremiumNetflix)
+amazon.agregarPlan(planBasicoAmazon)
+amazon.agregarPlan(planPremiumAmazon)
 
-const serie1 = new Serie ("Sere Mejor","Sere Mejor JPG",[categoria1],[director1],[actor1],[],[plataforma1])
-const serie2 = new Serie ("Puedo ser Mejor","Puedo ser Mejor JPG",[categoria2],[director2],[actor2],[],[plataforma2])
+// 8.Crear una nueva serie
 
-//categoria2.categorias.push(serie2)
-//categoria1.categorias.push(serie1)
-//director1.series.push(serie1)
-//director2.series.push(serie2)
+let serie1 = new Serie("serie1", "serie1.jpg")
+let serie2 = new Serie("serie2", "serie2.jpg")
+
+// 9.Crear una nueva categoria
+
+let categoriaAccion = new Categoria("Acción")
+let categoriaDrama = new Categoria("Drama")
+let categoriaRomanca = new Categoria("Romance")
+
+// Crear Episodios
+
+new Episodio("Episodio 1","Primer episodio serie 1",20,serie1)
+new Episodio("Episodio1","Primer episodio serie 2 ",30,serie2)
+
+// Asiganar categorias
+
+serie1.agragarCategoria(categoriaAccion)
+serie2.agragarCategoria(categoriaDrama)
+
+// 10.Crear un nuevo actor
+
+let actor1 = new Actor("Actor 1","Actor1.jpg","Descripción actor 1")
+let actor2 = new Actor("Actor 2","Actor2.jpg","Descripción actor 2")
+
+// 11.Crear un nuevo director
+
+let director1 = new Director("Director1", "Diretor1.jpg","Descripción deirectoe 1")
+let director2 = new Director("Director2", "Diretor2.jpg","Descripción deirectoe 2")
+
+//Asiganar actores y directores
+
+serie1.agregarActor(actor1)
+serie1.agregarDirector(director1)
+
+serie2.agregarActor(actor2)
+serie2.agregarDirector(director2)
+
+// Agregar series a la plataforma 
+
+netflix.agregarSerie(serie1)
+amazon.agregarSerie(serie2)
+
+console.log(netflix)
+console.log(amazon)
 
 // Ejecución 
-// 1. Mostrar listado de series. 
-serie1.mostrarListadoSeries()
-serie2.mostrarListadoSeries()
-// 2. Mostrar detalle de una serie.
-serie1.mostarDetalleSerie()
-// 3. Mostrar el listado de categorías
-categoria1.listadoDeCategorias()
-categoria2.listadoDeCategorias()
+// 1.Mostrar listado de series. 
+
+netflix.listarSeries()
+amazon.listarSeries()
+
+// 2.Mostrar detalle de una serie.
+
+serie1.mostrarDetalle()
+serie2.mostrarDetalle()
+
+// 3.Mostrar el listado de categorías
+
+serie1.listarCategorias()
+serie2.listarCategorias()
 
 // 4.Mostrar el listado de directores y actores de una serie
-director1.mostrarListadoDirector()
-director2.mostrarListadoDirector()
-actor1.mostrarListadoActor()
-actor2.mostrarListadoActor()
+
+serie1.listarActores()
+serie1.listarDirectores()
+
 // 5.Mostrar el detalle de un director y de un actor
-director1.mostrarDetalle()
+
 actor1.mostrarDetalle()
+director1.mostrarDetalle()
+
 // 6.Mostrar el listado de las plataformas
-plataforma1.mostrarListadoPlataformas()
-plataforma2.mostrarListadoPlataformas()
-// 7. Mostrar detalle de una plataforma
-plataforma1.mostrarDetalle()
-// 8.Crear una nueva serie
-const serie3 = new Serie("Nueva serie", "Nueva serie JGP",[categoria1],[director1],[actor1],[],[plataforma1])
-console.log("Nueva serie:",serie3)
-// 9. Crear una nueva categoria
-const categoria3 = new Categoria ("Romance",[])
-console.log("Nueva categoria:",categoria3)
-// 10.Crear un nuevo actor
-const actro3 = new Actor([],"nuevo actor", "nuevo actor JPG", "Descripción del nuevo actor")
-console.log("El nuevo actor:",actro3)
-// 11.Crear un nuevo director
-const director3 = new Director("nuevo director", "foto nuevo director","descripción nuevo director",[])
-console.log(director3)
+
+serie1.listaPlataformas()
+serie2.listaPlataformas()
+
+// 7.Mostrar detalle de una plataforma
+
+netflix.mostrarDetalle()
+amazon.mostrarDetalle()
+
+
+
+
 
 

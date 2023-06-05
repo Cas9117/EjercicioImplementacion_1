@@ -1,16 +1,10 @@
 import { Persona } from "./persona.js";
 export class Director extends Persona {
-    constructor(nombre, foto, descripcion, series) {
+    constructor(nombre, foto, descripcion) {
         super(nombre, foto, descripcion);
-        this.series = series;
+        this.series = [];
     }
-    mostrarDetalle() {
-        console.log("Detalle del director:");
-        console.log("Nombre:", this.nombre);
-        console.log("Foto:", this.foto);
-        console.log("Descripción:", this.descripcion);
-    }
-    mostrarListadoDirector() {
-        console.log("Listado Director:", this.nombre);
+    agregarSerie(serie) {
+        this.series.push(serie);
     }
 }

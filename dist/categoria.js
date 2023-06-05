@@ -1,10 +1,9 @@
 export class Categoria {
-    constructor(nombre, categorias) {
+    constructor(nombre) {
         this.nombre = nombre;
-        this.categorias = categorias;
+        this.series = [];
     }
-    listadoDeCategorias() {
-        console.log("Listado de categorias:");
-        console.log(this.nombre);
+    agregarSerie(serie) {
+        this.series.push(serie);
     }
 }

@@ -1,23 +1,55 @@
 export class Serie {
-    constructor(nombre, imagen, categorias, directores, actores, episodios, plataformas) {
+    constructor(nombre, imagen) {
         this.nombre = nombre;
         this.imagen = imagen;
-        this.categorias = categorias;
-        this.directores = directores;
-        this.actores = actores;
-        this.episodios = episodios;
-        this.plataformas = plataformas;
+        this.categorias = [];
+        this.directores = [];
+        this.actores = [];
+        this.episodios = [];
+        this.plataformas = [];
     }
-    mostrarListadoSeries() {
-        console.log("Listado de series:", this.nombre);
+    agregarPlataforma(plataforma) {
+        this.plataformas.push(plataforma);
     }
-    mostarDetalleSerie() {
-        console.log("Detalle de serie:");
-        console.log("Imagen:", this.imagen);
-        console.log("Categoria:", this.categorias);
-        console.log("Director:", this.directores);
-        console.log("Actores:", this.actores);
-        console.log("Episodios:", this.episodios);
-        console.log("Plataformas:", this.plataformas);
+    agragarCategoria(categoria) {
+        this.categorias.push(categoria);
+        categoria.agregarSerie(this);
+    }
+    agregarDirector(director) {
+        this.directores.push(director);
+        director.agregarSerie(this);
+    }
+    agregarActor(actor) {
+        this.actores.push(actor);
+        actor.agregarSerie(this);
+    }
+    agregarEpisodio(episodio) {
+        this.episodios.push(episodio);
+    }
+    mostrarDetalle() {
+        console.log(`Titulo: ${this.nombre}`);
+        console.log(`Imagen: ${this.imagen}`);
+        this.listarCategorias();
+    }
+    listarCategorias() {
+        console.log(`Titulo:`);
+        this.categorias.forEach((categoria) => {
+            console.log(categoria);
+        });
+    }
+    listarActores() {
+        this.actores.forEach((value) => {
+            value.mostrarDetalle();
+        });
+    }
+    listarDirectores() {
+        this.directores.forEach((value) => {
+            value.mostrarDetalle();
+        });
+    }
+    listaPlataformas() {
+        this.plataformas.forEach((value) => {
+            value.mostrarDetalle();
+        });
     }
 }

@@ -4,4 +4,9 @@ export class Persona {
         this.foto = foto;
         this.descripcion = descripcion;
     }
+    mostrarDetalle() {
+        console.log(`Nombre: ${this.nombre}`);
+        console.log(`Foto: ${this.foto}`);
+        console.log(`Descripción: ${this.descripcion}`);
+    }
 }

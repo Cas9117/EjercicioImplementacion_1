@@ -1,5 +1,8 @@
 export class Plan {
-        constructor(precio) {
+    constructor(precio) {
         this.precio = precio;
+    }
+    agregarPlataforma(plataforma) {
+        this.plataforma = plataforma;
     }
 }
